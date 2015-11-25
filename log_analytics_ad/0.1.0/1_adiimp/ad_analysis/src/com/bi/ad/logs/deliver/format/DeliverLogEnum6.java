@@ -1,0 +1,5 @@
+package com.bi.ad.logs.deliver.format;
+
+public enum DeliverLogEnum6 {
+	LOG_TYPE,TIME,IP,MAC,FCK,AP_AD_MATERIAL,UID,VER,RESPONSE_TIME,MID,MID_TYPE,REQ,EXT,PID,CLIENT,HOST_ID,OS,OS_VER,IMEI,FUDID,IDFA,USER_AGENT;
+}

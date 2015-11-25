@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans>  
+    <bean id="student" class="com.test.ioc.Student">  
+        <property name="no" type="java.lang.String">  
+            <value>1</value>  
+        </property>  
+        <property name="name" type="java.lang.String">  
+            <value>石头</value>  
+            <value>帽子</value>  
+        </property>  
+    </bean>  
+    <bean id="student2" class="com.test.ioc.Student">  
+        <property name="no" type="java.lang.String">  
+            <value>44</value>  
+        </property>  
+        <property name="name" type="java.lang.String">  
+            <value>范跑跑</value>  
+        </property>  
+    </bean>  
+    <bean id="ip" class="com.test.ioc.checkip">  
+        <property name="no" type="java.lang.String">  
+            <value>44</value>  
+        </property>  
+        <property name="name" type="java.lang.String">  
+            <value>范跑跑</value>  
+        </property>  
+    </bean>
+</beans> 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="jar" name="log_analytics">
+	<!-- ====此处需要修改====工程名 -->
+	<!-- 工程名,没有被引用，可以不改 -->
+	<property name="project-name" value="bootstrapetl" />
+	<!-- ====此处需要修改====.jar文件名 -->
+	<property name="hadoop_run_lib" value="D:/hadoop-1.0.3" />
+	<property name="hadoop_lib" value="D:/hadoop-1.0.3/lib" />
+	<!-- lib-->
+	<property name="src" value="${basedir}/src" />
+	<!-- src-->
+	<property name="tar" value="${basedir}/bin" />
+	<!-- bin -->
+	<property name="jar-file-name" value="C:/Users/fuys/Desktop/funshion_mobile/423/${project-name}.jar" />
+	<property name="main-class" value="com.bi.mobile.bootstrap.format.correctdata.BootStrapFormat" />
+	<!-- ====此处需要修改====main-class-->
+	<path id="Third-Part Lib">
+		<fileset dir="${hadoop_run_lib}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${hadoop_lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<target description="Build file usage info (default task)" name="usage">
+		<echo message=" " />
+		<echo message="  ${project-name} " />
+		<echo message="-------------------------------------------------------" />
+		<echo message="  Available Targets:" />
+		<echo message="  compile    - Compiles the source code" />
+		<echo message="  clean      - Delete class files and .jar file" />
+		<echo message="  jar        - Generate an .jar for source code" />
+		<echo message="  run        - Execute Main-Class" />
+		<echo message="  src        - ${src}" />
+		<echo message="  basedir        - ${basedir}" />
+		
+		<echo message="-------------------------------------------------------" />
+	</target>
+	<target name="prepare">
+		<mkdir dir="${tar}" />
+	</target>
+	<target name="clean">
+		<delete dir="${tar}" />
+		<delete file="${jar-file-name}" />
+	</target>
+
+	<target name="copy-res">
+		<copy todir="${tar}">
+			<fileset dir="${src}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target depends="clean,prepare,copy-res" name="compile">
+		<javac debug="true" deprecation="true" destdir="${tar}" failonerror="true" srcdir="${src}">
+			<classpath refid="Third-Part Lib" />
+		</javac>
+	</target>
+	<!--
+       <target name="run" depends="jar">
+            <java jar="${jar-file-name}" fork="true" maxmemory="256m"/>
+      </target>
+      -->
+	<!-- 注意：classpath="${tar}" 一定要加上，否则会报"java.lang.NoClassDefFoundError"的错误！
+	<target depends="compile" name="run">
+		<java classname="${main-class}" classpath="${tar}" fork="true" maxmemory="256m">
+			<classpath refid="Third-Part Lib" />
+		</java>
+	</target>
+	-->
+	<target depends="compile" name="jar">
+		<jar basedir="${tar}" destfile="${jar-file-name}">
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}" />
+				<attribute name="Class-Path" value="" />
+			</manifest>
+		</jar>
+	</target>
+</project>

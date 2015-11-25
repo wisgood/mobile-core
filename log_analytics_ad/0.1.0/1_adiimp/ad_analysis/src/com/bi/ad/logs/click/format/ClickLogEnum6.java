@@ -1,0 +1,5 @@
+package com.bi.ad.logs.click.format;
+
+public enum ClickLogEnum6 {
+	LOG_TYPE,TIME,IP,MAC,FCK,AP,UID,VER,RESPONSE_TIME,AD,MID,MID_TYPE,REQ,EXT,PID,CLIENT,HOST_ID,OS,OS_VER,IMEI,FUDID,IDFA,USER_AGENT;
+}

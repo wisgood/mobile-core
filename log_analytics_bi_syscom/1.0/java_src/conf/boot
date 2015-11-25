@@ -1,0 +1,15 @@
+#loginfo
+orgsplitsymbol=,
+orgfieldslength=12
+filterlength=3
+resultsplitssymbol=\t
+resultfieldslength=13
+resultvalue=1or2,3,4,&4,&5,&6,&7,&8,&9,&10,&11,&12
+#classinfo
+com.bi.extend.util.TimestampFormatUtil
+com.bi.extend.util.IPFormatUtil
+com.bi.extend.util.MACFormatUtil
+#methodinfo
+1or2=formatTimestamp(&1,$dateid)
+3=ipFormat(&2)
+4=macFormatToCorrectStr(&3)

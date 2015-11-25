@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans>
+    <field id="DFD">
+    	<property name="fields">
+    		<value>timestamp,ip,dev,mac,version,unknown,infohash,serverip,ok,bpos,btm,drate,sid,nrate,msok,ptype,rt,ip,cl,mid,eid,vid,vt,fudid,messageid,type,lian</value>
+    	</property>
+    	<property name="FS">
+    		<value>,</value>
+    	</property>
+    	<property name="OFS">
+    		<value>,</value>
+    	</property>
+    	<property name="IH">
+    		<value>infohash</value>
+    	</property>
+    </field>
+    <bean id="timestamp" class="com.bi.common.etl.transform.TimestampTransform"></bean>
+    <bean id="dev" class="com.bi.common.etl.transform.PlatTransform">
+    	<property name="name" type="java.lang.String">
+    		<value>hone</value>
+    	</property>
+		<property name="index" type="java.lang.String">
+    		<value>0</value>
+    	</property>
+    </bean>
+	<bean id="mac" class="com.bi.common.etl.transform.MacTransform">
+		<property name="isUpper" type="java.lang.String">
+    		<value>False</value>
+    	</property>
+	</bean>
+	<bean id="version" class="com.bi.common.etl.transform.IP2LongTransform" flow="true"></bean>
+	<bean id="serverip" class="com.bi.common.etl.transform.IP2LongTransform"></bean>
+	<bean id="ip" class="com.bi.common.etl.transform.IP2LongTransform" flow="true"></bean>
+	<bean id="ip" class="com.bi.common.etl.transform.IP2AreaIspTransform"></bean>
+</beans> 

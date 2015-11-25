@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans>
+    <field id="DFD">
+    	<property name="fields">
+    		<value>timestamp,ip,dev,mac,version,unknown,infohash,serverip,ok,bpos,btm,drate,sid,nrate,msok,ptype,rt,ip,cl,mid,eid,vid,vt,fudid,messageid,type,lian</value>
+    	</property>
+    	<property name="FS">
+    		<value>,</value>
+    	</property>
+    	<property name="OFS">
+    		<value>,</value>
+    	</property>
+    </field>
+    <bean id="dev" class="com.bi.common.etl.transform.PlatTransform"></bean>
+	<bean id="mac" class="com.bi.common.etl.transform.MacTransform"></bean>
+	<bean id="version" class="com.bi.common.etl.transform.IP2LongTransform"></bean>
+	<bean id="serverip" class="com.bi.common.etl.transform.IP2LongTransform"></bean>
+</beans> 

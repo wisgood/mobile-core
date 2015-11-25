@@ -1,0 +1,6 @@
+package com.bi.mobilequality.dbuffer.format.dataenum;
+
+public enum DbufferQualityFormatEnum {
+    
+    DATE_ID,HOUR_ID,PLAT_ID,VERSION_ID,PROVICE_ID,ISP_ID,SERVER_ID,BTM_FORMAT,BPOS_FORMAT,MAC_FORMAT,IP_FORMAT,TIMESTAMP, IP, DEV, MAC, VER, NT, IH, SERVERIP, OK,DPOS,SPOS,BPOS,BTM,DRATE,SID,PTYPE,RT,IPHONEIP,CL;
+}
